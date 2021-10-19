@@ -1,0 +1,11 @@
+# Images
+
+Small stock photo:
+
+<img src="img/stock.jpg" alt="stocksm" width="200"/>
+
+Really big stock photo:
+
+![stock photos r cool](img/stock.jpg)
+
+

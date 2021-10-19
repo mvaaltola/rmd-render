@@ -1,0 +1,8 @@
+# Details
+
+This chapter focuses on smaller details.
+
+## Here's some details
+
+Some details.
+
