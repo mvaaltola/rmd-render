@@ -1,22 +1,22 @@
 on:
-	push:
-		branches: main
+  push:
+    branches: main
 
 name: Render Rmd
 
 jobs:
-	render:
-		name: Render Rmd
-		runs-on: ubuntu-latest
-		steps:
-			- uses: actions/checkout@v2
-			- uses: r-lib/actions/setup-r@v1
-			- uses: r-lib/actions/setup-pandoc@v1
-			- name: Install rmarkdown
-			  run: Rscript -e 'install.packages("rmarkdown")'
-			- name: Install bookdown
-			  run: Rscript -e 'install.packages("bookdown")'
-			- name: Render Rmd
-			  run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
-			- name: Commit output
-			  run: git add -A && git commit -m "Automated render" && git push origin
+  render:
+    name: Render Rmd
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install rmarkdown
+        run: Rscript -e 'install.packages("rmarkdown")'
+      - name: Install bookdown
+        run: Rscript -e 'install.packages("bookdown")'
+      - name: Render Rmd
+        run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
+      - name: Commit output
+        run: git add -A && git commit -m "Automated render" && git push origin
