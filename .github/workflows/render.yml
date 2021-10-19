@@ -2,11 +2,11 @@ on:
   push:
     branches: main
 
-name: Render Rmd
+name: Render & Commit Rmd
 
 jobs:
   render:
-    name: Render Rmd
+    name: Render & Commit Rmd
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,5 +18,8 @@ jobs:
         run: Rscript -e 'install.packages("bookdown")'
       - name: Render Rmd
         run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
-      - name: Commit output
-        run: git add -A && git commit -m "Automated render" && git push origin
+      - name: Add, Commit & Push
+        uses: EndBug/add-and-commit@v7.4.0
+        with:
+          add: 'src'
+          message: 'Automated render'
