@@ -13,9 +13,9 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install rmarkdown
-        run: Rscript -e "install.packages("rmarkdown")"
+        run: Rscript -e "install.packages('rmarkdown')"
       - name: Install bookdown
-        run: Rscript -e "install.packages("bookdown")"
+        run: Rscript -e "install.packages('bookdown')"
       - name: Render Rmd to HTML
         run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
       - name: Move output to docs
