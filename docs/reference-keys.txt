@@ -1,8 +1,0 @@
-writing-documents-with-rmd
-r-markdown-demo
-front-page
-playing-around-with-rmd
-custom-id-here
-images
-details
-heres-some-details
