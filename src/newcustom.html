@@ -2,6 +2,8 @@
 <html lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
 
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +28,7 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  $math$
+$math$
 $endif$
 
 <meta name="description" content="$if(description)$$description$$else$$pagetitle$$endif$">
@@ -72,102 +74,103 @@ $if(abstract)$
 </style>
 $endif$
 
-$if(csl-css)$
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-$if(csl-entry-spacing)$
-  margin-bottom: $csl-entry-spacing$;
-$endif$
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-$endif$
-
 $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+
 </head>
 
 <body>
-<div class="main">
 
 $for(include-before)$
 $include-before$
 $endfor$
 
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
 <!--bookdown:title:start-->
+<!-- This title section is only rendered to index.html -->
+<div id="title-container">
+
 $if(title)$
-<div id="$idprefix$header">
-<h1 class="title">$title$</h1>
+<h1 id="title-header">$title$</h1>
 $if(subtitle)$
-<h3 class="subtitle"><em>$subtitle$</em></h3>
+<h3 id="subtitle-header"><em>$subtitle$</em></h3>
 $endif$
+
 $for(author)$
 $if(author.name)$
 <h4 class="author"><em>$author.name$</em></h4>
+
 $if(author.affiliation)$
-<address class="author_afil">
-$author.affiliation$<br>$endif$
+<address class="author_afil">$author.affiliation$<br>
+$endif$
+
 $if(author.email)$
-<a class="author_email" href="mailto:#">$author.email$</a>
-</address>
+<a class="author_email" href="mailto:#">$author.email$</a></address>
 $endif$
 $else$
 <h4 class="author"><em>$author$</em></h4>
 $endif$
 $endfor$
+
 $if(date)$
-<h4 class="date"><em>Built on: $date$</em></h4>
+<h4 id="build-date"><em>Built date: $date$</em></h4>
 $endif$
-</div>
+
 $if(abstract)$
 <div class="abstract">
 <p class="abstract">$if(abstract-title)$$abstract-title$$else$Abstract$endif$</p>
 $abstract$
 </div>
 $endif$
+
 $endif$
-(This is only on index page)<br>
+</div>
 <!--bookdown:title:end-->
 
 <!--bookdown:toc:start-->
-(Table of contents starts here)
+<header class="main-toc tm-header" id="tm-header">
+<div class="tm-header-wrapper">
+
+<button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+<!-- todo: remove font-awesome dependency -->
+<i class="fas fa-bars"></i>
+</button>
+
+<div class="tm-site-header">
+<h1 class="text-center">$pagetitle$</h1>
+</div>
+
+<nav class="tm-nav" id="tm-nav">
 $if(toc)$
 <div id="$idprefix$TOC" class="toc">
 $toc$
 </div>
 $endif$
-(Table of contents ends here)
+</nav>
+
+<p class="tm-mb-80 pr-5 text-white">
+This is a very cool webpage with lots of useful information.
+</p>
+
+</div>
+</header>
 <!--bookdown:toc:end-->
 
 <!--bookdown:body:start-->
-(Rmd document body starts here)
 $body$
-(Rmd document body ends here)
 <!--bookdown:body:end-->
 
 $for(include-after)$
 $include-after$
 $endfor$
 
-</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/templatemo-script.js"></script>
 </body>
 </html>
