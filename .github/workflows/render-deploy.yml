@@ -22,7 +22,7 @@ jobs:
         run: rm -rf docs && mv src/_book docs
 
       - name: Stash output
-        run: git stash
+        run: git stash --all
       - name: Checkout branch gh-pages
         uses: actions/checkout@v2
         with:
