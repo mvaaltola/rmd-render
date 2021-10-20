@@ -19,7 +19,7 @@ jobs:
           files: .(Rmd|rmd)$
 
       - name: Deploy if files changed
-        if: steps.changed-rmd.outputs.any_changed == "true"
+        if: steps.changed-rmd.outputs.any_changed == 'true'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
