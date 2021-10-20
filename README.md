@@ -5,15 +5,16 @@ Test repository for automatically rendering R Markdown (Rmd) files to HTML using
 ## Usage
 
 Edit the Rmd files in src using your favorite text editor (vim).
-GitHub automatically renders these files to HTML documents with [bookdown](https://bookdown.org).
-It uses a custom HTML template and CSS stylesheet at [src/custom.html](src/custom.html) and [src/custom.css](src/custom.css).
-The bookdown output is then moved to docs/ and automatically committed.
+Any changes to `*.(Rmd|rmd)` files pushed to the `main` branch trigger a GitHub workflow that renders `src/*.Rmd` to HTML documents using [bookdown](https://bookdown.org).
+HTML is rendered using a custom [HTML template](src/custom.html) and [CSS stylesheet](src/custom.css).
+The bookdown HTML output is moved to `docs/` on the `gh-pages` branch and automatically committed.
 
-The docs directory is hosted using GH Pages at [https://mvaaltola.github.io/rmd-render/](https://mvaaltola.github.io/rmd-render/).
+See the output on GitHub pages at [https://mvaaltola.github.io/rmd-render/](https://mvaaltola.github.io/rmd-render/).
 
 ## TODO
 
-- [ ] Improve workflow performance (Docker?).
-- [ ] Move docs/ to its own gh-pages branch.
+- [x] Trigger rendering only when rmarkdown files are changed
+- [x] Move docs/ to its own gh-pages branch.
+- [ ] Improve render workflow performance (Docker).
 - [ ] Test rendering to PDF documents.
 - [ ] Improve custom HTML and CSS.
