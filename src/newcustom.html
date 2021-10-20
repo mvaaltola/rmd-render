@@ -61,19 +61,6 @@ $highlighting-css$
 </style>
 $endif$
 
-$if(abstract)$
-<style type="text/css">
-  p.abstract{
-    text-align: center;
-    font-weight: bold;
-  }
-  div.abstract{
-    margin: auto;
-    width: 90%;
-  }
-</style>
-$endif$
-
 $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
@@ -119,12 +106,11 @@ $endif$
 $endfor$
 
 $if(date)$
-<h4 id="build-date"><em>Built date: $date$</em></h4>
+<h4 id="build-date"><em>Build date: $date$</em></h4>
 $endif$
 
 $if(abstract)$
 <div class="abstract">
-<p class="abstract">$if(abstract-title)$$abstract-title$$else$Abstract$endif$</p>
 $abstract$
 </div>
 $endif$
@@ -154,9 +140,11 @@ $toc$
 $endif$
 </nav>
 
-<p class="tm-mb-80 pr-5 text-white">
-This is a very cool webpage with lots of useful information.
-</p>
+$if(abstract)$
+<div class="abstract-sidebar">
+$abstract$
+</div>
+$endif$
 
 </div>
 </header>

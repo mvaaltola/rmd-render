@@ -3,6 +3,7 @@ title: "Writing documents with Rmd"
 author: "Mikael Vaaltola"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
+abstract: "This is an abstract for the document."
 output:
     bookdown::html_book:
         toc: true

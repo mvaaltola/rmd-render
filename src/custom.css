@@ -92,21 +92,23 @@ p, span { color: #999; }
     border: 2px solid blue;
     text-align: center;
 }
+
 #title-header {
     color: sandybrown;
 }
+
 .author {
     color: greenyellow;
 }
+
 #build-date {
     color: royalblue;
 }
 
-.main-toc {
-    border: 1px solid green;
+.abstract {
+    margin: auto;
+    width: 90%;
 }
-
-
 
 /* Media queries */
 @media (max-width: 1540px) {
