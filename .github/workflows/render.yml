@@ -20,6 +20,8 @@ jobs:
         run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
       - name: Move output to docs
         run: rm -rf docs && mv src/_book docs
+      - name: Switch to branch gh-pages
+        run: git stash && git checkout gh-pages && git stash pop
       - name: Add, Commit & Push
         uses: EndBug/add-and-commit@v7.4.0
         with:
