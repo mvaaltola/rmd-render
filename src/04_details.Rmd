@@ -6,3 +6,17 @@ This chapter focuses on smaller details.
 
 Some details.
 
+Check out this code block:
+
+```
+Class ABC:
+
+    def __init__() -> None:
+        self.abc = "abc"
+
+    def get_abc(self) -> str:
+        """Returns abc."""
+        return self.abc
+```
+
+I wonder how it renders...
