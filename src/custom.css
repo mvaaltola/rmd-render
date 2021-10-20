@@ -38,7 +38,13 @@ p, span { color: #999; }
 
 .tm-site-header {
     margin-top: 50px;
-    margin-bottom: 115px;
+    margin-bottom: 15px;
+}
+
+.tm-site-logo {
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
 }
 
 .tm-row {
@@ -55,7 +61,7 @@ p, span { color: #999; }
 
 /* TOC */
 #TOC ul { position: relative; }
-#TOC li { list-style: none; }
+#TOC li { list-style: none; padding-bottom: 4px; }
 
 #TOC > ul > li > a {
     height: 75px;
