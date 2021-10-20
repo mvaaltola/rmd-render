@@ -6,3 +6,8 @@ custom-id-here
 images
 details
 heres-some-details
+new-page
+subsec
+subsubsec
+subsubsec-again
+new-stuff
