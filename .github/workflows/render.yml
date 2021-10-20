@@ -24,4 +24,5 @@ jobs:
         uses: EndBug/add-and-commit@v7.4.0
         with:
           add: "docs"
+          branch: "gh-pages"
           message: "Automatic: Update docs"
