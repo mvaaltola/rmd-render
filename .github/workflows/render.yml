@@ -1,12 +1,11 @@
+name: Render to HTML & Deploy
 on:
-  push:
-    branches: main
-
-name: Render to HTML & Commit
+  repository_dispatch:
+    types: [render-deploy]
 
 jobs:
-  render:
-    name: Render to HTML & Commit
+  render-deploy:
+    name: Render to HTML & Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,19 +15,23 @@ jobs:
         run: Rscript -e "install.packages('rmarkdown')"
       - name: Install bookdown
         run: Rscript -e "install.packages('bookdown')"
+
       - name: Render Rmd to HTML
         run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
       - name: Move output to docs
         run: rm -rf docs && mv src/_book docs
+
       - name: Stash output
         run: git stash
-      - uses: actions/checkout@v2
+      - name: Checkout branch gh-pages
+        uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - name: Apply stash
-        run: git stash pop
+      - name: Clean docs and apply stash
+        run: rm -rf docs && git stash pop
+
       - name: Add, Commit & Push
-        uses: EndBug/add-and-commit@v7.4.0
+        uses: EndBug/add-and-commit@v7
         with:
           add: "docs"
           branch: "gh-pages"
