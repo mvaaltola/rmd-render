@@ -1,13 +1,13 @@
---- 
+---
 title: "Writing documents with Rmd"
 author: "Mikael Vaaltola"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 output:
-    bookdown::html_chapters:
+    bookdown::html_book:
         toc: true
         theme: null
-        template: custom.html
+        template: newcustom.html
         css: custom.css
         split_by: rmd
 documentclass: book
