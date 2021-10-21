@@ -165,18 +165,14 @@ p, span { color: #999; }
     .sidebar-wrapper { padding: 15px; }
 
     .sidebar .navbar-toggle {
-        display: block;
+        display: inline-block;
         position: fixed;
         left: 20px;
-        background-color: #800093;
-        color: #fbfbfb;
         padding: 10px 15px;
         transition: all 0.3s ease;
         border-radius: 0;
-        top: 5px;
+        outline: none;
     }
-
-    .sidebar.show .navbar-toggle { left: 250px; }
 
     .level1 {
         margin-left: 0;

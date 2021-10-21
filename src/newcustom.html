@@ -66,7 +66,7 @@ $for(css)$
 $endfor$
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+<link href="css/hamburgers.css" rel="stylesheet">
 
 </head>
 
@@ -124,9 +124,9 @@ $endif$
 <header class="main-toc sidebar" id="sidebar">
 <div class="sidebar-wrapper">
 
-<button class="navbar-toggle" id="navbar-toggle" type="button" onclick="navToggle()" aria-label="Toggle navigation">
-<!-- todo: remove font-awesome dependency -->
-<i class="fas fa-bars"></i>
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
 </button>
 
 <div class="sidebar-title"><h1 class="text-center">$pagetitle$</h1></div>
