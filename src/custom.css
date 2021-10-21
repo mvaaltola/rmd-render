@@ -132,6 +132,7 @@ p, span { color: #999; }
 
 .footer-company { margin-bottom: 5px; }
 
+.footer-contact { margin: 0 20px; }
 .footer-contact-info {
     color: #cccccc;
     display: block;
