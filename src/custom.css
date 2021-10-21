@@ -1,22 +1,12 @@
 /* Generics */
-@import url('https://fonts.googleapis.com/css?family=Karla');
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Karla', sans-serif;
-    font-size: 19px;
-    line-height: 2em;
-    overflow-x: hidden;
-}
-
-/* ul { margin: 0; padding: 0; } */
+body { overflow-x: hidden; }
 
 p, span { color: #999; }
 
 /* Sidebar */
-.tm-header {
-    background-color: #eaeaff;
-    color: white;
+.sidebar {
+    background-color: #800093;
+    color: #fbfbfb;
 
     position: fixed;
     top: 0;
@@ -27,37 +17,30 @@ p, span { color: #999; }
     overflow-y: visible;
 }
 
-.tm-header-wrapper {
+.sidebar-wrapper {
     overflow-y: scroll;
-    scrollbar-width: none;
     -ms-overflow-style: none;
     padding: 30px;
     width: 100%;
     height: 100%;
 }
 
-.tm-site-header {
+.sidebar-title {
     margin-top: 50px;
     margin-bottom: 15px;
 }
 
-.tm-site-logo {
+.sidebar-logo {
     display: block;
-    margin: auto;
-    margin-bottom: 25px;
+    margin: auto auto 25px;
 }
 
-.tm-row {
-    max-width: 980px;
-    justify-content: space-between;
-}
-
-.tm-nav {
+.sidebar-nav {
     margin-bottom: 100px;
     margin-left: -30px;
 }
 
-.tm-header .navbar-toggler { display: none; }
+.sidebar .navbar-toggle { display: none; }
 
 /* TOC */
 #TOC ul { position: relative; }
@@ -67,11 +50,11 @@ p, span { color: #999; }
     height: 75px;
     font-size: 1.3rem;
     padding: 10px;
-    color: #333;
+    color: #fbfbfb;
 }
 
 #TOC li > a {
-    color: #999;
+    color: #cccccc;
     width: 100%;
     max-width: 300px;
     display: flex;
@@ -79,15 +62,25 @@ p, span { color: #999; }
 }
 
 .toc-section-number {
-    color: #333;
+    color: #fbfbfb;
     padding-right: 15px;
 }
 
 /* Main content */
+.main-content {
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
 .level1 { /* wraps around main content */
+    flex: 1 0 auto;
+    justify-content: space-between;
     margin-left: 400px;
     padding: 80px 100px 25px;
-    max-width: 600px;
+    max-width: 900px;
     margin-bottom: 4px;
 }
 
@@ -114,56 +107,76 @@ p, span { color: #999; }
 }
 
 /* Footer */
-footer {
-    padding-top: 5px;
-    background-color: #eaeaff;
+.footer {
+    padding: 20px 0;
+    background-color: #800093;
+    margin-left: 320px;
+    flex-shrink: 0;
 }
 
-.footer-company {
-    font-size: 1.4rem;
-    margin-bottom: 50px;
+.footer-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
 }
+
+.footer-title-container {
+    margin-bottom: 10px;
+}
+
+.footer-title {
+    color: #fbfbfb;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.footer-company { margin-bottom: 5px; }
 
 .footer-contact-info {
+    color: #cccccc;
     display: block;
-    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.footer-copyright-year {
+    font-size: 0.5rem;
 }
 
 /* Media queries */
 @media (max-width: 1540px) {
-    .tm-header { width: 320px; }
+    .sidebar { width: 320px; }
     .level1 {
         margin-left: 320px;
         width: calc(100% - 320px);
     }
 }
 
+@media (max-width: 1199px) and (min-width: 992px) { .level1 { padding: 80px 40px 25px; } }
+
+/* Hide sidebar */
 @media (max-width: 991px) {
-    .tm-header {
+    .sidebar {
         width: 320px;
         left: -320px;
         transition: all 0.3s ease;
     }
 
-    .tm-header.show { left: 0; }
-    .tm-header-wrapper { padding: 15px; }
+    .sidebar.show { left: 0; }
+    .sidebar-wrapper { padding: 15px; }
 
-    .tm-header .navbar-toggler {
+    .sidebar .navbar-toggle {
         display: block;
         position: fixed;
         left: 20px;
-        top: 0;
-        background-color: #eaeaff;
-        color: white;
+        background-color: #800093;
+        color: #fbfbfb;
         padding: 10px 15px;
         transition: all 0.3s ease;
         border-radius: 0;
         top: 5px;
     }
 
-    .tm-header.show .navbar-toggler {
-        left: 250px;
-    }
+    .sidebar.show .navbar-toggle { left: 250px; }
 
     .level1 {
         margin-left: 0;
@@ -171,16 +184,9 @@ footer {
         width: 100%;
         max-width: none;
     }
+    .footer { margin-left: 0; }
 }
 
 @media (max-width: 767px) {
     .level1 { padding: 60px 10px; }
-    .tm-copyright { text-align: left; }
-}
-
-@media (max-width: 1199px) and (min-width: 992px) {
-    .level1 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
 }

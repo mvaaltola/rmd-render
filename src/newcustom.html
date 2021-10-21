@@ -76,6 +76,7 @@ $for(include-before)$
 $include-before$
 $endfor$
 
+<div class="main-content">
 <!-- special comment to mark beginning of title section for bookdown -->
 <!-- bookdown comments must be in this order: title, toc, body -->
 
@@ -106,7 +107,7 @@ $endif$
 $endfor$
 
 $if(date)$
-<h4 id="build-date"><em>Build date: $date$</em></h4>
+<h4 id="build-date">Version: <em>$date$</em></h4>
 $endif$
 
 $if(abstract)$
@@ -120,18 +121,18 @@ $endif$
 <!--bookdown:title:end-->
 
 <!--bookdown:toc:start-->
-<header class="main-toc tm-header" id="tm-header">
-<div class="tm-header-wrapper">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
 
-<button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+<button class="navbar-toggle" id="navbar-toggle" type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <!-- todo: remove font-awesome dependency -->
 <i class="fas fa-bars"></i>
 </button>
 
-<div class="tm-site-header"><h1 class="text-center">$pagetitle$</h1></div>
-<img width="100px" src="img/cat.png" class="tm-site-logo">
+<div class="sidebar-title"><h1 class="text-center">$pagetitle$</h1></div>
+<img alt="Logo" width="100px" src="img/cat.png" class="sidebar-logo">
 
-<nav class="tm-nav" id="tm-nav">
+<nav class="sidebar-nav">
 $if(toc)$
 <div id="$idprefix$TOC" class="toc">
 $toc$
@@ -153,34 +154,31 @@ $endif$
 $body$
 <!--bookdown:body:end-->
 
-<footer class="text-center text-lg-start text-muted">
+<footer class="footer text-center">
 
-<section class="">
-<div class="container text-center text-md-start mt-5">
-<div class="row mt-3">
+<div class="footer-container text-center">
 
-<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-<h6 class="footer-company">vaalto.la</h6>
-<div class="license">
-<img src="img/by-nd.svg" width="80px" alt="CC-BY-ND">
+<div>
+$if(title)$
+<h3 class="footer-title">$title$</h3>
+$if(subtitle)$
+<p class="footer-subtitle"><em>$subtitle$</em></p>
+$endif$
+$endif$
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
-</div>
 
-<div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-<h6 class="mb-4">Contact</h6>
+<div class="footer-contact text-left">
+<h6 class="footer-title footer-company">vaalto.la
+<span class="footer-copyright-year">© 2021</span></h6>
 <span class="footer-contact-info">Helsinki, Finland</span>
 <span class="footer-contact-info">mikael@vaalto.la</span>
 <span class="footer-contact-info">+ 01 234 567 88</span>
 </div>
 
 </div>
-</div>
-</section>
-
-<div class="text-center p-4">
-© 2021 <a class="text-reset fw-bold" href="https://vaalto.la/">vaalto.la</a>
-</div>
 </footer>
+</div>
 
 $for(include-after)$
 $include-after$
