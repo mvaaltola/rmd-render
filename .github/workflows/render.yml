@@ -6,10 +6,10 @@ jobs:
   render:
     name: Render to HTML
     runs-on: ubuntu-latest
-    container:
-      image: toyland/bookdown:latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Render Rmd to HTML
-        run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
+        run: ./render.sh
+      - name: Assert index.html exists
+        run: test -f out/index.html
