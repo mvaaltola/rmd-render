@@ -8,7 +8,7 @@ output:
     bookdown::html_book:
         toc: true
         theme: null
-        template: newcustom.html
+        template: custom.html
         css: custom.css
         split_by: rmd
 documentclass: book
