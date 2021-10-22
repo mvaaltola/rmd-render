@@ -1,4 +1,5 @@
 writing-documents-with-rmd
+lorem
 r-markdown-demo
 front-page
 playing-around-with-rmd
