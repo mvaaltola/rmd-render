@@ -2,6 +2,8 @@
 <html lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
 
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +28,7 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  $math$
+$math$
 $endif$
 
 <meta name="description" content="$if(description)$$description$$else$$pagetitle$$endif$">
@@ -43,13 +45,6 @@ $if(highlightjs)$
       href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
       $if(html5)$$else$type="text/css" $endif$/>
 <script src="$highlightjs$/highlight.js"></script>
-$if(theme)$
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-$endif$
 <script type="text/javascript">
 if (window.hljs && document.readyState && document.readyState === "complete") {
    window.setTimeout(function() {
@@ -64,159 +59,135 @@ $if(highlighting-css)$
 <style type="text/css">
 $highlighting-css$
 </style>
-$if(theme)$
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-$endif$
-$endif$
-
-$if(abstract)$
-<style type="text/css">
-  p.abstract{
-    text-align: center;
-    font-weight: bold;
-  }
-  div.abstract{
-    margin: auto;
-    width: 90%;
-  }
-</style>
-$endif$
-
-$if(csl-css)$
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-$if(csl-entry-spacing)$
-  margin-bottom: $csl-entry-spacing$;
-$endif$
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 $endif$
 
 $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
 
-$if(theme)$
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-/* show arrow before summary tag as in bootstrap
-TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
-details > summary {
-  display: list-item;
-  cursor: pointer;
-}
-</style>
-$endif$
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
 </head>
 
 <body>
-
-$if(theme)$
-<div class="container-fluid main-container">
-$endif$
 
 $for(include-before)$
 $include-before$
 $endfor$
 
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
 <!--bookdown:title:start-->
+<!-- This title section is only rendered to index.html -->
+<div id="title-container">
+
 $if(title)$
-<div id="$idprefix$header">
-<h1 class="title">$title$</h1>
+<h1 id="title-header">$title$</h1>
 $if(subtitle)$
-<h3 class="subtitle"><em>$subtitle$</em></h3>
+<h3 id="subtitle-header"><em>$subtitle$</em></h3>
 $endif$
+
 $for(author)$
 $if(author.name)$
 <h4 class="author"><em>$author.name$</em></h4>
+
 $if(author.affiliation)$
-<address class="author_afil">
-$author.affiliation$<br>$endif$
+<address class="author_afil">$author.affiliation$<br>
+$endif$
+
 $if(author.email)$
-<a class="author_email" href="mailto:#">$author.email$</a>
-</address>
+<a class="author_email" href="mailto:#">$author.email$</a></address>
 $endif$
 $else$
 <h4 class="author"><em>$author$</em></h4>
 $endif$
 $endfor$
+
 $if(date)$
-<h4 class="date"><em>$date$</em></h4>
+<h4 id="build-date">Version: <em>$date$</em></h4>
 $endif$
-</div>
+
 $if(abstract)$
 <div class="abstract">
-<p class="abstract">$if(abstract-title)$$abstract-title$$else$Abstract$endif$</p>
 $abstract$
 </div>
 $endif$
+
 $endif$
+</div>
 <!--bookdown:title:end-->
 
 <!--bookdown:toc:start-->
-Table of contents here!
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title"><h1 class="text-center">$pagetitle$</h1></div>
+<img alt="Logo" width="100px" src="img/cat.png" class="sidebar-logo">
+
+<nav class="sidebar-nav">
 $if(toc)$
 <div id="$idprefix$TOC" class="toc">
 $toc$
 </div>
 $endif$
+</nav>
+
+$if(abstract)$
+<div class="abstract-sidebar">
+$abstract$
+</div>
+$endif$
+
+</div>
+</header>
 <!--bookdown:toc:end-->
 
 <!--bookdown:body:start-->
-Body here!
 $body$
 <!--bookdown:body:end-->
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div>
+$if(title)$
+<h3 class="footer-title">$title$</h3>
+$if(subtitle)$
+<p class="footer-subtitle"><em>$subtitle$</em></p>
+$endif$
+$endif$
+$if(date)$
+<span class="footer-version">v$date$</span>
+$endif$
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-contact text-left">
+<h6 class="footer-title footer-company">vaalto.la
+<span class="footer-copyright-year">© 2021</span></h6>
+<span class="footer-contact-info">Helsinki, Finland</span>
+<span class="footer-contact-info">mikael@vaalto.la</span>
+<span class="footer-contact-info">+ 01 234 567 88</span>
+</div>
+
+</div>
+</footer>
+</div>
 
 $for(include-after)$
 $include-after$
 $endfor$
 
-$if(theme)$
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-$$(document).ready(function () {
-  $$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-});
-
-</script>
-$endif$
+<script src="js/nav-script.js"></script>
 
 </body>
 </html>

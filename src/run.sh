@@ -2,7 +2,9 @@
 
 set -e
 
-Rscript -e "bookdown::render_book('/work', 'bookdown::html_chapters')"
+rm -rf /out/*
+
+Rscript -e "bookdown::render_book('/work', 'bookdown::html_book')"
 
 mv _book/* /out/
 rm -r _book

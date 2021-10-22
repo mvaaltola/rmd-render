@@ -15,6 +15,6 @@ See the output on GitHub pages at [https://mvaaltola.github.io/rmd-render/](http
 
 - [x] Trigger rendering only when rmarkdown files are changed
 - [x] Move docs/ to its own gh-pages branch.
+- [x] Improve custom HTML and CSS.
 - [ ] Improve render workflow performance (Docker).
 - [ ] Test rendering to PDF documents.
-- [ ] Improve custom HTML and CSS.
