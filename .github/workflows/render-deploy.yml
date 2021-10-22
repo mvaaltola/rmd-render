@@ -17,7 +17,7 @@ jobs:
         run: Rscript -e "install.packages('bookdown')"
 
       - name: Render Rmd to HTML
-        run: Rscript -e "bookdown::render_book('src', 'bookdown::html_chapters')"
+        run: Rscript -e "bookdown::render_book('src', 'bookdown::html_book')"
       - name: Move output to docs
         run: rm -rf docs && mv src/_book docs
 
