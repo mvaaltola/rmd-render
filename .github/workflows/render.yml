@@ -9,8 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
-        run: docker build -t mvaaltola/bookdown .
       - name: Render Rmd to HTML
         run: ./render.sh
       - name: Assert index.html exists
